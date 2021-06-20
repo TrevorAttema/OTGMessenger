@@ -31,3 +31,10 @@ Software breakdown
 * STM32CubeMX - hardware configuration platform by STM
 * Self healing mesh networking - enables group communication over vast distances. Devices (nodes) act as relay stations.
 
+Development Roadmap
+* Improved text messaging functionality
+* Address book
+* Voice messages
+* Group chat
+* Low power tweaks/settings to optimise power consumption
+* Password protection at login
