@@ -27,4 +27,5 @@ Software breakdown
 * STM32 ChromeART for graphics
 * STM32CubeIDE - software development and debug environment. C/C++ coding
 * STM32CubeMX - hardware configuration platform by STM
+* Self healing mesh networking - enables group communication over vast distances. Devices (nodes) act as relay stations.
 
