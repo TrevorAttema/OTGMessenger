@@ -1,0 +1,21 @@
+
+{
+  "Application": {
+    "Name": "H742VGT6",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "AvailableColorDepths": [ 24 ],
+    "AvailableLCDs":
+    {
+      "24": "LCD24bpp"
+    },
+    "AvailableResolutions" : [
+      {
+        "Width": 320,
+        "Height": 240
+      }
+    ],
+    "PostGenerateTargetCommand" : "touchgfx update_project --project-file=../H742VGT6.ioc --platform=m7",
+    "Family" : "STM32H7"
+  },
+  "Version": "4.16.1"
+}
