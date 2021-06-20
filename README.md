@@ -59,3 +59,6 @@ User iterfaced developed with the amazing TouchGFX GUI builder created by ST. Th
 
 ![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbback-small.jpg)
 
+
+**Board Schematics and Design**
+I'll publish the motherboard if I get some positive interest in this project from the community.
