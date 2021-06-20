@@ -2,7 +2,12 @@
 Off The Grid (OTG) Messenger is an easy way for people to communicate through text messages when in remote areas.
 With a theoretical transmission range of 10 miles (16kms), OTG messenger can be used by groups of people to stay connected when they are in areas not serviced by mobile connectivity.
 
-For portability and low power purposes, the device was created by re-purposing an old Nokia e63 phone I had laying aroud. The enclosure, LCD, keypad, backlighting and speaker have been re-used however the motherboard was re-designed from the ground up with low power components, a modern STM32 H7 microcontroller, an ISM LoRA radio and expanded flash memory. 
+For portability and low power purposes, the device was created by re-purposing an old Nokia e63 phone I had laying aroud. The enclosure, LCD, keypad, backlighting and speaker have been re-used however the motherboard was re-designed from the ground up with low power components, a modern STM32 H7 microcontroller, an ISM LoRA radio and expanded flash memory.
+
+Here's the device boot screen:
+
+![Boot Screen](https://github.com/TrevorAttema/OTGMessenger/blob/master/device-front-small.jpg)
+
 
 Common use cases
 - Sports enthusiasts - people who participate in remote area sporting activities, out of mobile service
@@ -12,6 +17,11 @@ Common use cases
 Why was this device created? It was developed as a science project to learn/teach everything about the STM32 ecosystem of products, hardware engineering, embedded systems engineering, and encrypted communications.
 
 This is considered an 'advanced' project so if you're just starting out with embedded systems or have only ever used the arduino platform then the concepts shown here could be challenging. You should be familiar with C/C++, SWD debugging, ARM core knowledge along with bare metal device driver development.
+
+Main Menu
+
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/main-screen-small.jpg)
+
 
 Hardware breakdown
 * STM32H742VGT6 - ARM STM32 H7 - https://www.st.com/resource/en/datasheet/stm32h742vg.pdf
@@ -38,3 +48,13 @@ Development Roadmap
 * Group chat
 * Low power tweaks/settings to optimise power consumption
 * Password protection at login
+
+PCB Images. Front and back 4 layer board
+
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbfront-small.jpg)
+
+
+PCB Images. Back of PCB
+
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbback-small.jpg)
+
