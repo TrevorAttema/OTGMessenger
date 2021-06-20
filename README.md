@@ -22,6 +22,7 @@ This is considered an 'advanced' project so if you're just starting out with emb
 
 ![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/main-screen-small.jpg)
 
+User iterfaced developed with the amazing TouchGFX GUI builder created by ST. The e63 doesn't support touch and TouchGFX doesn't work with keypads or buttons so interfacing the keypad to the GUI engine was not a trivial exercise.
 
 **Hardware breakdown**
 * STM32H742VGT6 - ARM STM32 H7 - https://www.st.com/resource/en/datasheet/stm32h742vg.pdf
