@@ -2,6 +2,8 @@
 Off The Grid (OTG) Messenger is an easy way for people to communicate through text messages when in remote areas.
 With a theoretical transmission range of 10 miles (16kms), OTG messenger can be used by groups of people to stay connected when they are in areas not serviced by mobile connectivity.
 
+For portability and low power purposes, the device was created by re-purposing an old Nokia e63 phone I had laying aroud. The enclosure, LCD, keypad, backlighting and speaker have been re-used however the motherboard was re-designed from the ground up with low power components, a modern STM32 H7 microcontroller, an ISM LoRA radio and expanded flash memory. 
+
 Common use cases
 - Sports enthusiasts - people who participate in remote area sporting activities, out of mobile service
 - Farmers - people who work in remote areas without mobile phone coverage
