@@ -1,4 +1,4 @@
-# OTGMessenger
+# Off The Grid Messenger
 Off The Grid (OTG) Messenger is an easy way for people to communicate through text messages when in remote areas.
 With a theoretical transmission range of 10 miles (16kms), OTG messenger can be used by groups of people to stay connected when they are in areas not serviced by mobile connectivity.
 
