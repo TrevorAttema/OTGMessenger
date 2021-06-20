@@ -49,7 +49,7 @@ This is considered an 'advanced' project so if you're just starting out with emb
 * Low power tweaks/settings to optimise power consumption
 * Password protection at login
 
-**PCB Images. Front and back 4 layer board**
+**Customer 4 layer PCB, designed to fit the Nokia e63 Enclosure**
 
 ![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbfront-small.jpg)
 
