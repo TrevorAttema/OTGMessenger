@@ -22,7 +22,7 @@ This is considered an 'advanced' project so if you're just starting out with emb
 
 ![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/main-screen-small.jpg)
 
-User iterfaced developed with the amazing TouchGFX GUI builder created by ST. The e63 doesn't support touch and TouchGFX doesn't work with keypads or buttons so interfacing the keypad to the GUI engine was not a trivial exercise.
+User interface developed with the amazing TouchGFX GUI builder created by ST. The e63 doesn't support touch and TouchGFX doesn't work with keypads or buttons so interfacing the keypad to the GUI engine was not a trivial exercise.
 
 **Hardware breakdown**
 * STM32H742VGT6 - ARM STM32 H7 - https://www.st.com/resource/en/datasheet/stm32h742vg.pdf
@@ -50,7 +50,7 @@ User iterfaced developed with the amazing TouchGFX GUI builder created by ST. Th
 * Low power tweaks/settings to optimise power consumption
 * Password protection at login
 
-**Customer 4 layer PCB, designed to fit the Nokia e63 Enclosure**
+**Custom 4 layer PCB, designed to fit the Nokia e63 Enclosure**
 
 ![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbfront-small.jpg)
 
