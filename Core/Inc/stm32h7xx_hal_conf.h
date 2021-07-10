@@ -205,7 +205,7 @@
 #define  USE_HAL_PCD_REGISTER_CALLBACKS     0U /* PCD register callback disabled     */
 #define  USE_HAL_QSPI_REGISTER_CALLBACKS    0U /* QSPI register callback disabled    */
 #define  USE_HAL_RNG_REGISTER_CALLBACKS     0U /* RNG register callback disabled     */
-#define  USE_HAL_RTC_REGISTER_CALLBACKS     0U /* RTC register callback disabled     */
+#define  USE_HAL_RTC_REGISTER_CALLBACKS     1U /* RTC register callback enabled     */
 #define  USE_HAL_SAI_REGISTER_CALLBACKS     0U /* SAI register callback disabled     */
 #define  USE_HAL_SD_REGISTER_CALLBACKS      0U /* SD register callback disabled      */
 #define  USE_HAL_SMARTCARD_REGISTER_CALLBACKS  0U /* SMARTCARD register callback disabled */

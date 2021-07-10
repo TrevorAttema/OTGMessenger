@@ -6,6 +6,9 @@
  */
 #include <stdlib.h>
 
+#include "main.h"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 #include <i2c.h>
 #include <gpio.h>
 #include <SX1509B.h>
@@ -66,7 +69,11 @@ ascii_value_t ascii_values[] = {
 		{ 0x0000, KEY_POWER, KEY_NOVAL, KEY_NOVAL}
 };
 
+extern osEventFlagsId_t keypadEventHandle;
+EXTI_HandleTypeDef hKeyboardEXTI;
+
 static int ascii_compare  (const void * a, const void * b);
+static void SX1509B_IRQHandler(void);
 
 HAL_StatusTypeDef SX1509B_WriteReg(uint8_t reg, uint8_t value) {
 	HAL_StatusTypeDef status;
@@ -134,6 +141,11 @@ HAL_StatusTypeDef SX1509B_InitKeypad() {
 	status |= SX1509B_WriteReg(SX159B_REGKEYCONFIG2, SX159B_ROWCOL_SCAN);
 
 	qsort(ascii_values, sizeof(ascii_values)/sizeof(ascii_values[0]), sizeof(ascii_value_t), ascii_compare);
+
+	HAL_EXTI_GetHandle(&hKeyboardEXTI, EXTI_LINE_0);
+	HAL_EXTI_RegisterCallback(&hKeyboardEXTI, HAL_EXTI_COMMON_CB_ID, SX1509B_IRQHandler);
+  //HAL_NVIC_SetPriority(EXTI0_IRQn, 0x5, 0x00);
+  //HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 	return status;
 }
@@ -218,3 +230,10 @@ uint8_t  SX1509B_TranslateScanCode( uint16_t code)
 
 	return scan_code->key;
 }
+
+static void SX1509B_IRQHandler(void)
+{
+	osEventFlagsSet(keypadEventHandle, EVENT_KEYBOARD_INT);
+  //HAL_EXTI_IRQHandler(&hRADIO_DIO_exti[DIO]);
+}
+

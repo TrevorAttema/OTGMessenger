@@ -30,4 +30,17 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Middlewares/SubGHz_Phy/sx1276.c</name>
+			<type>1</type>
+			<locationURI>copy_PARENT/Middlewares/Third_Party/SubGHz_Phy/sx1276/sx1276.c</locationURI>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-4-PROJECT_LOC%7D/Downloads/en.i-cube_lrwan/STM32CubeExpansion_LRWAN_V2.0.0</value>
+		</variable>
+	</variableList>
 </projectDescription>

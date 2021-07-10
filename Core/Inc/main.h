@@ -54,15 +54,27 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+#define RTC_N_PREDIV_S 10
+#define RTC_PREDIV_S ((1<<RTC_N_PREDIV_S)-1)
+#define RTC_PREDIV_A ((1<<(15-RTC_N_PREDIV_S))-1)
 
+#define EVENT_KEYBOARD_INT 0x00000001U
+
+#define RADIO_IRQ_ALL_EVENTS			0x1F
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define EVENT_KEYBOARD_INT 0x00000001U
+#define RADIO_IRQ_EVENT_0 1
+#define RADIO_IRQ_EVENT_1 2
+#define RADIO_IRQ_EVENT_2 4
+#define RADIO_IRQ_EVENT_3 8
+#define RADIO_IRQ_EVENT_4 16
 #define RADIO_INT1_Pin GPIO_PIN_3
 #define RADIO_INT1_GPIO_Port GPIOE
+#define RADIO_INT1_EXTI_IRQn EXTI3_IRQn
 #define RADIO_INT2_Pin GPIO_PIN_4
 #define RADIO_INT2_GPIO_Port GPIOE
+#define RADIO_INT2_EXTI_IRQn EXTI4_IRQn
 #define LED1_Pin GPIO_PIN_13
 #define LED1_GPIO_Port GPIOC
 #define LED0_Pin GPIO_PIN_0
@@ -74,6 +86,14 @@ void Error_Handler(void);
 #define AUDIO_EN_GPIO_Port GPIOA
 #define AMP_EN_Pin GPIO_PIN_3
 #define AMP_EN_GPIO_Port GPIOA
+#define SPI1_NSS_Pin GPIO_PIN_4
+#define SPI1_NSS_GPIO_Port GPIOA
+#define SPI1_SCK_Pin GPIO_PIN_5
+#define SPI1_SCK_GPIO_Port GPIOA
+#define SPI1_MISO_Pin GPIO_PIN_6
+#define SPI1_MISO_GPIO_Port GPIOA
+#define SPI1_MOSI_Pin GPIO_PIN_7
+#define SPI1_MOSI_GPIO_Port GPIOA
 #define BATT_VSENSE_Pin GPIO_PIN_4
 #define BATT_VSENSE_GPIO_Port GPIOC
 #define KB_LED_EN_Pin GPIO_PIN_5
@@ -120,6 +140,7 @@ void Error_Handler(void);
 #define TCXO_ENABLE_GPIO_Port GPIOE
 #define RADIO_INT0_Pin GPIO_PIN_1
 #define RADIO_INT0_GPIO_Port GPIOE
+#define RADIO_INT0_EXTI_IRQn EXTI1_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

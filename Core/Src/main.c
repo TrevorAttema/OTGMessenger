@@ -23,7 +23,6 @@
 #include "crc.h"
 #include "dma2d.h"
 #include "i2c.h"
-#include "rtc.h"
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
@@ -36,6 +35,7 @@
 #include "SX1509B.h"
 #include "MC2PA8201.h"
 #include "MC2PA8201/colors.h"
+#include "rtc_if.h"
 
 /* USER CODE END Includes */
 
@@ -57,7 +57,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-//uint32_t tempArray[4] = {0 ,0 ,0 ,0} __attribute__((section(".sram1")));
 
 /* USER CODE END PV */
 
@@ -120,7 +119,6 @@ int main(void)
   MX_FMC_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
-  MX_RTC_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_DMA2D_Init();
@@ -131,13 +129,14 @@ int main(void)
 
 
   //HAL_StatusTypeDef status = HAL_OK;
-
+  RTC_IF_Init();
   SX1509B_InitKeypad();		// keypad init
   MC2PA8201_Init(0,0);		// lcd init
 
-  //SX1509B_NavLedSet(true);
-
-
+//  SubghzApp_Init();
+//  while(1){
+//  	HAL_Delay(1);
+//  }
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -150,52 +149,10 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
-
-
-//  MC2PA8201_SetFont(FONT_8x14);
-//  MC2PA8201_PutStrCentered("Nokia E63 LCD",0);
-//  MC2PA8201_SetFont(FONT_6x8);
-//  MC2PA8201_PutStr("Markings on the back:",0,25);
-//  MC2PA8201_PutStr("4850118 MP1.3 LS024Q8UX05C 0111R08353DE",0,35);
-//  MC2PA8201_PutStr("LCD manufacturer: Sharp",0,55);
-//  MC2PA8201_PutStr("LCD type: TFT",0,75);
-//  MC2PA8201_PutStr("Screen size: 2.36 inches",0,95);
-//  MC2PA8201_PutStr("Resolution: 320x240 px",0,115);
-//  MC2PA8201_PutStr("Colors: 16M (24 bit/pixel)",0,135);
-//  MC2PA8201_PutStr("Controller: MagnaChip MC2PA8201 compatible",0,155);
-//  MC2PA8201_PutStr("Connector: 24pin 24R-JANK-GSAN-TF with 0.4mm pitch",0,175);
-//  MC2PA8201_PutStr("Backlight: 4 LEDs",0,195);
-//  MC2PA8201_PutStr("MPU Interface: 8bit 8080 parallel",0,215);
-
-  //SX1509B_KeyboardLedSet(GPIO_PIN_RESET);
-
-  while (1)
-  {
-//  	status = MP2667_Read_Src_Ctl_Reg(&src);
-//  	status = MP2667_Read_Poc_Ctl_Reg(&poc);
-//  	status = MP2667_Read_Ccr_Ctl_Reg(&ccr);
-//  	status = MP2667_Read_Dtc_Ctl_Reg(&dtc);
-//  	status = MP2667_Read_Cgc_Ctl_Reg(&cgc);
-//  	status = MP2667_Read_Tcr_Ctl_Reg(&tcr);
-//  	status = MP2667_Read_Mis_Ctl_Reg(&mis);
-//  	status = MP2667_Read_Sta_Ctl_Reg(&sta);
-//  	status = MP2667_Read_Err_Ctl_Reg(&err);
-
-  	//status = SX1509B_ReadKeyRow(&row);
-  	//status = SX1509B_ReadKeyColumn(&column);
-
-//  	status = SX1509B_ReadRegs(SX1509B_Regs, SX1509B_RegCount);
-
-  	//MC2PA8201_ReadRegister(READ_DISPLAY_ID, 4, version);
-
-  	//checkWiring();
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+
   /* USER CODE END 3 */
 }
 
@@ -275,18 +232,30 @@ void PeriphCommonClock_Config(void)
   /** Initializes the peripherals clock
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_ADC
-                              |RCC_PERIPHCLK_SAI1|RCC_PERIPHCLK_USART1;
+                              |RCC_PERIPHCLK_I2C1|RCC_PERIPHCLK_SAI1
+                              |RCC_PERIPHCLK_SPI2|RCC_PERIPHCLK_SPI1
+                              |RCC_PERIPHCLK_USART1;
   PeriphClkInitStruct.PLL2.PLL2M = 5;
-  PeriphClkInitStruct.PLL2.PLL2N = 47;
-  PeriphClkInitStruct.PLL2.PLL2P = 4;
-  PeriphClkInitStruct.PLL2.PLL2Q = 4;
+  PeriphClkInitStruct.PLL2.PLL2N = 50;
+  PeriphClkInitStruct.PLL2.PLL2P = 5;
+  PeriphClkInitStruct.PLL2.PLL2Q = 2;
   PeriphClkInitStruct.PLL2.PLL2R = 1;
   PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_2;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
+  PeriphClkInitStruct.PLL3.PLL3M = 25;
+  PeriphClkInitStruct.PLL3.PLL3N = 240;
+  PeriphClkInitStruct.PLL3.PLL3P = 6;
+  PeriphClkInitStruct.PLL3.PLL3Q = 2;
+  PeriphClkInitStruct.PLL3.PLL3R = 2;
+  PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_0;
+  PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
+  PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
   PeriphClkInitStruct.FmcClockSelection = RCC_FMCCLKSOURCE_PLL2;
   PeriphClkInitStruct.Sai1ClockSelection = RCC_SAI1CLKSOURCE_PLL2;
+  PeriphClkInitStruct.Spi123ClockSelection = RCC_SPI123CLKSOURCE_PLL3;
   PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_PLL2;
+  PeriphClkInitStruct.I2c123ClockSelection = RCC_I2C123CLKSOURCE_PLL3;
   PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {

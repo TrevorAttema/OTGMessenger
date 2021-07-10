@@ -9,10 +9,13 @@
 #include <gpio.h>
 
 #include "main.h"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 
 #include "MC2PA8201.h"
 #include "MC2PA8201/colors.h"
 #include <string.h>
+#include "e63_display_driver.h"
 
 static COLOR_MODE MC2PA8201_color_mode;
 static ORIENTATION_MODE MC2PA8201_orientation_mode;
@@ -32,6 +35,10 @@ static uint8_t MADCTL_landscape=0x00;
 static uint8_t MADCTL_portrait_rev=0x60;
 static uint8_t MADCTL_landscape_rev=0xC0;
 
+EXTI_HandleTypeDef hDisplayEXTI;
+
+
+static void MC2PA8201_IRQHandler(void);
 
 static void lcd_rst(void) {
 
@@ -67,6 +74,11 @@ uint8_t MC2PA8201_Init(uint8_t AddressSetupTime,uint8_t DataSetupTime) {
 
   //GPIO_Configuration();
   //FSMC_LCD_Init(AddressSetupTime,DataSetupTime);
+
+	HAL_EXTI_GetHandle(&hDisplayEXTI, EXTI_LINE_15);
+	HAL_EXTI_RegisterCallback(&hDisplayEXTI, HAL_EXTI_COMMON_CB_ID, MC2PA8201_IRQHandler);
+  //HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x5, 0x00);
+  //HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   lcd_rst();
 
@@ -549,4 +561,11 @@ void MC2PA8201_BacklightOn()
 void MC2PA8201_SetBGROrder(uint8_t val) {
   wr_cmd(MEMORY_ACCESS_CONTROL);
   wr_dat(val);
+}
+
+static void MC2PA8201_IRQHandler(void)
+{
+	signal_vsync();
+	//osEventFlagsSet(keypadEventHandle, EVENT_KEYBOARD_INT);
+  //HAL_EXTI_IRQHandler(&hRADIO_DIO_exti[DIO]);
 }
