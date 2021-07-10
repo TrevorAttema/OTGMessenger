@@ -30,13 +30,6 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Middlewares/SubGHz_Phy/sx1276.c</name>
-			<type>1</type>
-			<locationURI>copy_PARENT/Middlewares/Third_Party/SubGHz_Phy/sx1276/sx1276.c</locationURI>
-		</link>
-	</linkedResources>
 	<variableList>
 		<variable>
 			<name>copy_PARENT</name>
