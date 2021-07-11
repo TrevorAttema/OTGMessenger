@@ -112,60 +112,8 @@ void RFM95W_RADIO_SetXO(uint8_t state)
 
 void RFM95W_RADIO_IoInit(void)
 {
-//  GPIO_InitTypeDef initStruct = {0};
-//  SPI_HandleTypeDef dummy_hspi;
-//
-//  /* Enable DIO GPIO clock */
-//  RADIO_DIO_0_GPIO_CLK_ENABLE();
-//  RADIO_DIO_1_GPIO_CLK_ENABLE();
-//  RADIO_DIO_2_GPIO_CLK_ENABLE();
-//  RADIO_DIO_3_GPIO_CLK_ENABLE();
-//#if( RADIO_DIOn > 4 )
-//  RADIO_DIO_4_GPIO_CLK_ENABLE();
-//#endif
-//#if( RADIO_DIOn > 5 )
-//  RADIO_DIO_5_GPIO_CLK_ENABLE();
-//#endif
-//
-//  /* DIO IO Init */
-//  initStruct.Pull = GPIO_PULLDOWN;
-//  initStruct.Speed = GPIO_SPEED_HIGH;
-//
-//  for (uint32_t i = 0; i < RADIO_DIOn ; i++)
-//  {
-//    initStruct.Mode = RADIO_DIO_MODE[i];
-//    initStruct.Pin = RADIO_DIO_PIN[i];
-//    HAL_GPIO_Init(RADIO_DIO_PORT[i], &initStruct);
-//  }
-
-  //* Antenna IO Init */
-//  RADIO_ANT_CLK_ENABLE();
-
-//  initStruct.Pin = RADIO_ANT_SWITCH_PIN;
-//  initStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//  initStruct.Pull = GPIO_NOPULL;
-//  initStruct.Speed = GPIO_SPEED_HIGH;
-//
-//  HAL_GPIO_Init(RADIO_ANT_SWITCH_PORT, &initStruct);
-
-  /* SPI IO Init */
-  /* Normally done by the HAL_MSP callback but not for this applic */
-  // RFM95W_RADIO_SPI_IoInit(&dummy_hspi);
-
-  /* NSS initialization */
-//  initStruct.Pin = RADIO_NSS_PIN;
-//  initStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//  initStruct.Pull = GPIO_PULLUP;
-//
-//  /* Enable NSS */
-//  RADIO_NSS_CLK_ENABLE();
-//  HAL_GPIO_Init(RADIO_NSS_PORT, &initStruct);
-//  HAL_GPIO_WritePin(RADIO_NSS_PORT, RADIO_NSS_PIN, GPIO_PIN_SET);
-
 	HAL_GPIO_WritePin(RADIO_EN_GPIO_Port, RADIO_EN_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(RADIO_NSS_PORT, RADIO_NSS_PIN, GPIO_PIN_SET);
-
-
 }
 
 void RFM95W_RADIO_IoDeInit(void)
@@ -318,33 +266,7 @@ uint32_t RFM95W_RADIO_GetDio1PinState(void)
 */
 static void RFM95W_RADIO_SPI_IoInit(SPI_HandleTypeDef *spiHandle)
 {
-//  GPIO_InitTypeDef GPIO_InitStruct;
-//  /* USER CODE BEGIN SPI1_MspInit 0 */
-//
-//  /* USER CODE END SPI1_MspInit 0 */
-//  /* Enable Peripheral clock */
-//  RADIO_SPI_SCK_GPIO_CLK_ENABLE();
-//  RADIO_SPI_MOSI_GPIO_CLK_ENABLE();
-//  RADIO_SPI_MISO_GPIO_CLK_ENABLE();
-//
-//  /**SPI1 GPIO Configuration
-//  PA5     ------> SPI1_SCK
-//  PA6     ------> SPI1_MISO
-//  PA7     ------> SPI1_MOSI
-//    */
-//  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-//  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//
-//  GPIO_InitStruct.Alternate = 0;
-//  GPIO_InitStruct.Pin = RADIO_SPI_MOSI_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_MOSI_GPIO_PORT, &GPIO_InitStruct);
-//  GPIO_InitStruct.Alternate = 0;
-//  GPIO_InitStruct.Pin = RADIO_SPI_MISO_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_MISO_GPIO_PORT, &GPIO_InitStruct);
-//  GPIO_InitStruct.Alternate = 0;
-//  GPIO_InitStruct.Pin = RADIO_SPI_SCK_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_SCK_GPIO_PORT, &GPIO_InitStruct);
+
 }
 
 /**
@@ -354,25 +276,6 @@ static void RFM95W_RADIO_SPI_IoInit(SPI_HandleTypeDef *spiHandle)
   */
 static void RFM95W_RADIO_SPI_IoDeInit(void)
 {
-//  GPIO_InitTypeDef GPIO_InitStruct;
-//
-//  /* Peripheral clock disable */
-//  /* no need to call SPI1_CLK_DISABLE() because going in LowPower it gets disabled automatically */
-//
-//  /* DeInitialize Peripheral GPIOs */
-//  /* Instead of using HAL_GPIO_DeInit() which set ANALOG mode
-//     it's preferred to set in OUTPUT_PP mode, with the pins set to 0 */
-//
-//  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-//  GPIO_InitStruct.Pin = RADIO_SPI_MOSI_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_MOSI_GPIO_PORT, &GPIO_InitStruct);
-//  GPIO_InitStruct.Pin = RADIO_SPI_MISO_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_MISO_GPIO_PORT, &GPIO_InitStruct);
-//  GPIO_InitStruct.Pin = RADIO_SPI_SCK_GPIO_PIN;
-//  HAL_GPIO_Init(RADIO_SPI_SCK_GPIO_PORT, &GPIO_InitStruct);
-//
-//
   HAL_GPIO_WritePin(RADIO_SPI_MOSI_GPIO_PORT, RADIO_SPI_MOSI_GPIO_PIN, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(RADIO_SPI_MISO_GPIO_PORT, RADIO_SPI_MISO_GPIO_PIN, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(RADIO_SPI_SCK_GPIO_PORT, RADIO_SPI_SCK_GPIO_PIN, GPIO_PIN_RESET);

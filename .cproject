@@ -76,6 +76,8 @@
                                     <listOptionValue builtIn="false" value="../TouchGFX/gui/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -148,6 +150,8 @@
                                     <listOptionValue builtIn="false" value="../Utilities"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -216,6 +220,8 @@
                                     <listOptionValue builtIn="false" value="../Utilities"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -662,6 +668,8 @@
                                     <listOptionValue builtIn="false" value="../TouchGFX/gui/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -732,6 +740,8 @@
                                     <listOptionValue builtIn="false" value="../Utilities"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								
@@ -798,6 +808,8 @@
                                     <listOptionValue builtIn="false" value="../Utilities"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Core/Tests}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Middlewares/Mesh}&quot;"/>
                                     								
                                 </option>
                                 								

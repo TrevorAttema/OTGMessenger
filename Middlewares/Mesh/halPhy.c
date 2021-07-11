@@ -58,7 +58,7 @@
 *****************************************************************************/
 uint8_t HAL_PhySpiWriteByte(uint8_t value)
 {
-  return HAL_PhySpiWriteByteInline(value);
+  return 0; //HAL_PhySpiWriteByteInline(value);
 }
 
 /*************************************************************************//**

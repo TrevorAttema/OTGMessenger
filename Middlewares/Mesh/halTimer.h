@@ -48,16 +48,17 @@
 #define _HAL_TIMER_H_
 
 /*- Includes ---------------------------------------------------------------*/
+#include "main.h"
 #include "sysTypes.h"
 
 /*- Definitions ------------------------------------------------------------*/
-#define HAL_TIMER_INTERVAL      10ul // ms
+#define HAL_TIMER_INTERVAL      1ul // ms
 
 /*- Variables --------------------------------------------------------------*/
-//extern volatile uint8_t halTimerIrqCount;
+extern volatile uint8_t halTimerIrqCount;
+extern EXTI_HandleTypeDef hTimerEXTI;
 
 /*- Prototypes -------------------------------------------------------------*/
 void HAL_TimerInit(void);
-void HAL_TimerDelay(uint16_t us);
 
 #endif // _HAL_TIMER_H_

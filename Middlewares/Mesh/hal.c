@@ -45,6 +45,11 @@
  */
 
 /*- Includes ---------------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "main.h"
+#include "cmsis_os.h"
+
 #include "hal.h"
 #include "halPhy.h"
 #include "halTimer.h"
@@ -55,14 +60,6 @@
 *****************************************************************************/
 void HAL_Mesh_Init(void)
 {
-//  MCUSR = 0;
-//  wdt_disable();
-//
-//  CLKPR = 1 << CLKPCE;
-//  CLKPR = 0;
-//
-//  SYS_EnableInterrupts();
-
   HAL_TimerInit();
   halPhyInit();
 }
@@ -71,5 +68,5 @@ void HAL_Mesh_Init(void)
 *****************************************************************************/
 void HAL_Mesh_Delay(uint8_t us)
 {
-  //HAL_TimerDelay(us);
+  osDelay( us );
 }

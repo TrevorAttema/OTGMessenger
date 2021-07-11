@@ -36,6 +36,7 @@
 
 #include "stm32_timer.h"
 #include "radio_test.h"
+#include "sys.h"
 
 /* USER CODE END Includes */
 
@@ -273,10 +274,15 @@ void radioTaskDispatcher(void *argument)
   /* Infinite loop */
 	RFM95W_RADIO_IoInit ();
 	SubghzApp_Init ();
+
+	//SYS_Init();
+
+
 	/* Infinite loop */
 	for (;;)
 	{
-		PingPong_Process();
+		//PingPong_Process();
+		//SYS_TaskHandler();
 		osDelay (1);
 	}
   /* USER CODE END radioTaskDispatcher */

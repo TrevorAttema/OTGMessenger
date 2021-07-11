@@ -58,7 +58,7 @@
 *****************************************************************************/
 void SYS_Init(void)
 {
-  HAL_Init();
+  HAL_Mesh_Init();
   SYS_TimerInit();
   PHY_Init();
   NWK_Init();

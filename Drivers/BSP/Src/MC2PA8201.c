@@ -35,7 +35,7 @@ static uint8_t MADCTL_landscape=0x00;
 static uint8_t MADCTL_portrait_rev=0x60;
 static uint8_t MADCTL_landscape_rev=0xC0;
 
-EXTI_HandleTypeDef hDisplayEXTI;
+volatile EXTI_HandleTypeDef hDisplayEXTI;
 
 
 static void MC2PA8201_IRQHandler(void);

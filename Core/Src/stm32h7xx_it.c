@@ -26,8 +26,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
-//#include "e63_display_driver.h"
-#include "RFM95W.h"
+#include "RFM95W.h"			// Radio
+#include "halTimer.h"		// Mesh
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -251,18 +251,19 @@ void TIM4_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-	//if(HAL_GPIO_ReadPin(LCD_TE_GPIO_Port, LCD_TE_Pin) == GPIO_PIN_SET)
+//	if(HAL_GPIO_ReadPin(LCD_TE_GPIO_Port, LCD_TE_Pin) == GPIO_PIN_SET)
+//	HAL_EXTI_IRQHandler(&hDisplayEXTI);
+//	{
+//	//HAL_EXTI_IRQHandler(&hDisplayEXTI);
+//		hDisplayEXTI.PendingCallback();
+//		HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+//		return;
+//	}
+
 	HAL_EXTI_IRQHandler(&hDisplayEXTI);
-		//hDisplayEXTI.PendingCallback();
-
-	//if(HAL_GPIO_ReadPin(RADIO_INT3_GPIO_Port, RADIO_INT3_Pin) == GPIO_PIN_SET)
 	HAL_EXTI_IRQHandler(&hRADIO_DIO_exti[3]);
-	//if(HAL_GPIO_ReadPin(RADIO_INT4_GPIO_Port, RADIO_INT4_Pin) == GPIO_PIN_SET)
 	HAL_EXTI_IRQHandler(&hRADIO_DIO_exti[4]);
-	//if(HAL_GPIO_ReadPin(RADIO_INT5_GPIO_Port, RADIO_INT5_Pin) == GPIO_PIN_SET)
 	HAL_EXTI_IRQHandler(&hRADIO_DIO_exti[5]);
-
-		//HAL_EXTI_IRQHandler(&hDisplayEXTI);
 
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
@@ -280,7 +281,7 @@ void EXTI15_10_IRQHandler(void)
 void RTC_Alarm_IRQHandler(void)
 {
   /* USER CODE BEGIN RTC_Alarm_IRQn 0 */
-
+	//HAL_EXTI_IRQHandler(&hTimerEXTI);
   /* USER CODE END RTC_Alarm_IRQn 0 */
   HAL_RTC_AlarmIRQHandler(&hrtc);
   /* USER CODE BEGIN RTC_Alarm_IRQn 1 */
@@ -303,26 +304,6 @@ void DMA2D_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-/*void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-  switch(GPIO_Pin){
-  	case KB_IRQ_Pin: {
-  	  HAL_EXTI_IRQHandler(&hKeyboardEXTI);
 
-  		//osEventFlagsSet(keypadEventHandle, EVENT_KEYBOARD_INT);
-  		break;
-  	}
-  	case BATT_STATUS_INT_Pin: {
-  		break;
-  	}
-  	case LCD_TE_Pin: {
-  		HAL_EXTI_IRQHandler(&hDisplayEXTI);
-  			//signal_vsync();
-  		break;
-  	}
-  }
-  UNUSED(GPIO_Pin);
-
-}*/
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
