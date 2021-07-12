@@ -6,7 +6,7 @@ For portability and low power purposes, the device was created by re-purposing a
 
 **Here's the device boot screen**
 
-![Boot Screen](https://github.com/TrevorAttema/OTGMessenger/blob/master/device-front-small.jpg)
+![Boot Screen](https://github.com/TrevorAttema/OTGMessenger/blob/master/Images/device-front-small.jpg)
 
 
 **Common use cases**
@@ -20,7 +20,7 @@ This is considered an 'advanced' project so if you're just starting out with emb
 
 **Main Menu after boot**
 
-![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/main-screen-small.jpg)
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/Images/main-screen-small.jpg)
 
 User interface developed with the amazing TouchGFX GUI builder created by ST. The e63 doesn't support touch and TouchGFX doesn't work with keypads or buttons so interfacing the keypad to the GUI engine was not a trivial exercise.
 
@@ -52,12 +52,12 @@ User interface developed with the amazing TouchGFX GUI builder created by ST. Th
 
 **Custom 4 layer PCB, designed to fit the Nokia e63 Enclosure**
 
-![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbfront-small.jpg)
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/Images/pcbfront-small.jpg)
 
 
 **PCB Images. Back of PCB**
 
-![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/pcbback-small.jpg)
+![Front PCB](https://github.com/TrevorAttema/OTGMessenger/blob/master/Images/pcbback-small.jpg)
 
 
 **Board Schematics and Design**
